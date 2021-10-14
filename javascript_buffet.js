@@ -2,7 +2,10 @@
  
 /* BigInt - This data type is used to store numbers which are above the limitation of the Number data type.It can store large integers and is represented by adding “n” to an integer literal.
  Example : */
- var bigInteger = 234567890123456789012345678901234567890;
+ 
+const previouslyMaxSafeInteger = 9007199254740991n
+const alsoHuge = BigInt(9007199254740991)
+// ↪ 9007199254740991n
  
  /* Symbol - It is a new data type introduced in the ES6 version of javascript.It is used to store an anonymous and unique value.
   Example : */
@@ -12,16 +15,15 @@
   
  let id = Symbol();
   
- //Upon creation, we can give symbol a description(also called a symbol name), mostly useful for debugging purposes:
+ /* Upon creation, we can give symbol a description(also called a symbol name), mostly useful for debugging purposes: */
   
  let id = Symbol("id");
   
- /* Symbols are guaranteed to be unique.Even if we create many symbols with the same description, they are different values.The description is just a label that doesn’t affect anything. Most values in JavaScript support implicit conversion to a string.For instance, we can alert almost any value, and it will work.Symbols are special.They don’t auto - convert. Any data type that is not a primitive data type, is of Object type in javascript.*/
+ /* Symbols are guaranteed to be unique.Even if we create many symbols with the same description, they are different values.The description is just a label that doesn’t affect anything. Most values in JavaScript support implicit conversion to a string.For instance, we can alert almost any value, and it will work.Symbols are special. They don’t auto - convert. Any data type that is not a primitive data type, is of Object type in javascript.*/
   
  //HOISTING
   
-  
- /*Hoisting is the default behavior of javascript where all the variable and function declarations are moved on top. This means that irrespective of where the variables and functions are declared, they are moved on top of the scope.The scope can be both local and global.ariable initializations are not hoisted, only variable declarations are hoisted. To avoid hoisting, you can run javascript in strict mode by using “use strict” on top of the code: */
+ /*Hoisting is the default behavior of javascript where all the variable and function declarations are moved on top. This means that irrespective of where the variables and functions are declared, they are moved on top of the scope.The scope can be both local and global. Variable initializations are not hoisted, only variable declarations are hoisted. To avoid hoisting, you can run javascript in strict mode by using “use strict” on top of the code: */
   
  "use strict";
  x = 23; // Gives an error since 'x' is not declared
@@ -29,12 +31,12 @@
   
  //STRING MANIPULATION
   
- /* In addition of 2 variables, say a and b if both are numbers only then all actual addition occurs.If both or any one of them are strings, then string concatenation occurs. In subtraction of two vars, actual subtraction as of numbers is done regardless of whether either of a and b are string or numbers. In case if either or both of a, b is bool then actual addition / subtraction takes place considering its value as 1 / 0.*/
+ /* In addition of 2 variables, say a and b if both are numbers only then actual addition (numeric) occurs. If both or any one of them are strings, then string concatenation occurs. In subtraction of two vars, actual subtraction as of numbers is done regardless of whether either of a and b are string or numbers. In case if either or both of a, b is bool then actual addition / subtraction takes place considering its value as 1 / 0.*/
   
  //COERCION
   
   
- /*Truthy values are those which will be converted(coerced) to true.Falsy values are those which will be converted to false. All values except 0, 0n, -0, “”, null, undefined and NaN are truthy values. While using the ‘==’ operator, coercion takes place. The ‘==’ operator, converts both the operands to the same type and then compares them.
+ /*Truthy values are those which will be converted(coerced) to true. Falsy values are those which will be converted to false. All values except 0, 0n, -0, “”, null, undefined and NaN are truthy values. While using the ‘==’ operator, coercion takes place. The ‘==’ operator, converts both the operands to the same type and then compares them.
  Example: */
   
  var a = 12;
@@ -54,7 +56,7 @@
   
     //PASSING BY REFERENCE
   
-    /* Suppose a is an argument passed to a function. If a is primitive, the a copy of a is received.While on the other hand if a is non primitive in nature, a reference to is received.But if the function is‘nt tweaking the internal components(obj prop, array elemen) of the non primitive argument a, but rather altering the arg or its value itself(reassigning etc) then the reference is neglected and the the arg is treated as a copy.Other than passing parameters to functions, same is the case with assigning variables. */
+    /* Suppose a is an argument passed to a function. If a is primitive, then a copy of 'a' is received. While on the other hand if a is non primitive in nature, a reference to is received. But if the function is‘nt tweaking the internal components(obj prop, array element) of the non primitive argument a, but rather altering the arg or its value itself(reassigning etc) then the reference is neglected and the the arg is treated as a copy. Other than passing parameters to functions, same is the case with assigning variables. */
   
     //IMMDIATELY INVOKED FUNCTIONS
   
